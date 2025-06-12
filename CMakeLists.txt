@@ -27,6 +27,9 @@ qt_add_qml_module(appCalculadoraResistencia
         Main.qml
         components/SideBar.qml
         components/SideBarBtn.qml
+        components/SideBarGrid.qml
+
+        components/Menu.qml
 )
 
 set_target_properties(appCalculadoraResistencia PROPERTIES

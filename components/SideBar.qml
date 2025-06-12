@@ -10,24 +10,34 @@ Rectangle {
     Rectangle {
         height: 276
         width: sidebar_parent.width
-        border.color: "red"
-        border.width: 2
+        // border.color: "red"
+        // border.width: 2
         color: sidebar_parent.color
         y: (sidebar_parent.height / 2) - (height / 2)
-        SideBarBtn {
-            id: menu_btn
-        }
-        SideBarBtn {
-            id: colors_btn
-            anchors.top: menu_btn.bottom
-        }
-        SideBarBtn {
-            id: circuit_btn
-            anchors.top: colors_btn.bottom
-        }
-        SideBarBtn{
-            id: ohm_btn
-            anchors.top: circuit_btn.bottom
+
+        Rectangle {
+            SideBarGrid {
+                id: menu_grid
+                texto: "Menú"
+            }
+
+            SideBarGrid {
+                id: colors_grid
+                texto: "Colores"
+                anchors.top: menu_grid.bottom
+            }
+
+            SideBarGrid {
+                id: circuit_grid
+                texto: "Circuitos"
+                anchors.top: colors_grid.bottom
+            }
+
+            SideBarGrid {
+                id: ohm_grid
+                texto: "Ley de Ohm"
+                anchors.top: circuit_grid.bottom
+            }
         }
     }
 }
