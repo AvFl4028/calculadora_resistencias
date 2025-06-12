@@ -1,9 +1,7 @@
 import QtQuick
-import QtQuick.Controls
 
 Rectangle {
     id: root
-    property string texto: "test"
     property string fondo: "#141218"
     property string fondo_activo: "#4A445B"
     property string circulo_back_normal: "#E6E0E9"
@@ -13,7 +11,8 @@ Rectangle {
     radius: 20
     color: fondo
 
-    signal presionado
+    property var onClick
+
 
     Rectangle {
         id: circle
@@ -29,7 +28,11 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: root.presionado()
+        onClicked: {
+            if(root.onClick){
+                root.onClick()
+            }
+        }
         hoverEnabled: true
         onEntered: {
             root.color = root.fondo_activo;

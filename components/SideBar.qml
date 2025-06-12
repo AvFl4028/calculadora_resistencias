@@ -7,6 +7,7 @@ Rectangle {
     width: 80
     radius: 12
 
+
     Rectangle {
         height: 276
         width: sidebar_parent.width
@@ -19,6 +20,9 @@ Rectangle {
             SideBarGrid {
                 id: menu_grid
                 texto: "Menú"
+                onClick: function(){
+                    console.log("Test sidebar")
+                }
             }
 
             SideBarGrid {

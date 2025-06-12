@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls.Material
 import "components" // <-- importa la carpeta
@@ -25,13 +27,23 @@ Window {
         SideBar {
             id: sidebar
             y: (main.height / 2) - (sidebar.height / 2)
+            
         }
 
-        Menu {
-            fontSize: 35
-            width: 450
-            x: (main.width / 2) - (width / 2)
-            y: (main.height / 3) - (height / 2)
+        Loader {
+            id: menu_load
+            active: false
+        }
+
+        Component {
+            id: menu_component
+            Menu {
+                id: menu
+                fontSize: 35
+                width: 450
+                x: (main.width / 2) - (width / 2)
+                y: (main.height / 3) - (height / 2)
+            }
         }
     }
 }
