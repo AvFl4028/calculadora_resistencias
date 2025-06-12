@@ -6,7 +6,10 @@ Rectangle {
     height: 390
     width: 80
     radius: 12
-
+    property var menuOnClick
+    property var colorsOnClick
+    property var circuitOnClick
+    property var ohmOnClick
 
     Rectangle {
         height: 276
@@ -20,8 +23,10 @@ Rectangle {
             SideBarGrid {
                 id: menu_grid
                 texto: "Menú"
-                onClick: function(){
-                    console.log("Test sidebar")
+                onClick: function () {
+                    if (sidebar_parent.menuOnClick) {
+                        sidebar_parent.menuOnClick();
+                    }
                 }
             }
 
@@ -29,18 +34,33 @@ Rectangle {
                 id: colors_grid
                 texto: "Colores"
                 anchors.top: menu_grid.bottom
+                onClick: function () {
+                    if (sidebar_parent.colorsOnClick) {
+                        sidebar_parent.colorsOnClick();
+                    }
+                }
             }
 
             SideBarGrid {
                 id: circuit_grid
                 texto: "Circuitos"
                 anchors.top: colors_grid.bottom
+                onClick: function () {
+                    if (sidebar_parent.circuitOnClick) {
+                        sidebar_parent.circuitOnClick();
+                    }
+                }
             }
 
             SideBarGrid {
                 id: ohm_grid
                 texto: "Ley de Ohm"
                 anchors.top: circuit_grid.bottom
+                onClick: function () {
+                    if (sidebar_parent.ohmOnClick) {
+                        sidebar_parent.ohmOnClick();
+                    }
+                }
             }
         }
     }

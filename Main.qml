@@ -27,12 +27,60 @@ Window {
         SideBar {
             id: sidebar
             y: (main.height / 2) - (sidebar.height / 2)
-            
+
+            menuOnClick: function () {
+                menu_load.active = true;
+                colors_loader.active = false;
+                circuit_loader.active = false;
+                ohm_loader.active = false;
+            }
+
+            colorsOnClick: function () {
+                menu_load.active = false;
+                colors_loader.active = true;
+                circuit_loader.active = false;
+                ohm_loader.active = false;
+            }
+
+            circuitOnClick: function () {
+                console.log("circuit");
+                menu_load.active = false;
+                colors_loader.active = false;
+                circuit_loader.active = true;
+                ohm_loader.active = false;
+            }
+
+            ohmOnClick: function () {
+                console.log("ohm");
+                menu_load.active = false;
+                colors_loader.active = false;
+                circuit_loader.active = false;
+                ohm_loader.active = true;
+            }
         }
 
         Loader {
             id: menu_load
+            active: true
+            sourceComponent: menu_component
+        }
+
+        Loader {
+            id: colors_loader
             active: false
+            sourceComponent: colors_component
+        }
+
+        Loader {
+            id: circuit_loader
+            active: false
+            sourceComponent: circuit_component
+        }
+
+        Loader {
+            id: ohm_loader
+            active: false
+            sourceComponent: ohm_component
         }
 
         Component {
@@ -44,6 +92,16 @@ Window {
                 x: (main.width / 2) - (width / 2)
                 y: (main.height / 3) - (height / 2)
             }
+        }
+
+        Component {
+            id: colors_component
+        }
+        Component {
+            id: circuit_component
+        }
+        Component {
+            id: ohm_component
         }
     }
 }
