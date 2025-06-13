@@ -25,11 +25,20 @@ qt_add_qml_module(appCalculadoraResistencia
     VERSION 1.0
     QML_FILES
         Main.qml
-        components/SideBar.qml
-        components/SideBarBtn.qml
-        components/SideBarGrid.qml
-
         components/Menu.qml
+        components/Colors.qml
+        
+        components/SideBar/SideBar.qml
+        components/SideBar/SideBarBtn.qml
+        components/SideBar/SideBarGrid.qml
+
+        components/General/Background.qml
+        components/General/TextField.qml
+        components/General/Title.qml
+        components/General/Results.qml
+
+        components/Colors/ResistenciaPreview.qml
+        components/Colors/CuatroBandas.qml
 )
 
 set_target_properties(appCalculadoraResistencia PROPERTIES

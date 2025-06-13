@@ -2,7 +2,8 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls.Material
-import "components" // <-- importa la carpeta
+import "components/SideBar" // <-- importa la carpeta
+import "components"
 
 Window {
     id: main
@@ -10,8 +11,9 @@ Window {
     // Material.accentColor: Material.Purple
 
     Material.theme: Material.System
-    width: 640
-    height: 480
+    property int marginSideBar: 50
+    width: 1280
+    height: 600
     visible: true
     title: qsTr("Calculadora de Resistencias")
 
@@ -61,13 +63,13 @@ Window {
 
         Loader {
             id: menu_load
-            active: true
+            active: false
             sourceComponent: menu_component
         }
 
         Loader {
             id: colors_loader
-            active: false
+            active: true
             sourceComponent: colors_component
         }
 
@@ -96,12 +98,33 @@ Window {
 
         Component {
             id: colors_component
+            Colors {
+                x: sidebar.x + sidebar.width + 10 + main.marginSideBar
+                height: main.height
+                width: main.width - (sidebar.x + sidebar.width + 10 + main.marginSideBar)
+            }
         }
         Component {
             id: circuit_component
+            Rectangle {
+                width: 300
+                height: width
+                color: "red"
+
+                x: (main.width / 2) - (width / 2)
+                y: (main.height / 3) - (height / 2)
+            }
         }
         Component {
             id: ohm_component
+            Rectangle {
+                width: 300
+                height: width
+                color: "purple"
+
+                x: (main.width / 2) - (width / 2)
+                y: (main.height / 3) - (height / 2)
+            }
         }
     }
 }
