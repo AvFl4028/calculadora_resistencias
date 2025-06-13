@@ -36,6 +36,8 @@ qt_add_qml_module(appCalculadoraResistencia
         components/General/TextField.qml
         components/General/Title.qml
         components/General/Results.qml
+        components/General/InputGroup.qml
+        components/General/TextFieldMenu.qml
 
         components/Colors/ResistenciaPreview.qml
         components/Colors/CuatroBandas.qml
