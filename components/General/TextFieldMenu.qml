@@ -7,7 +7,8 @@ Item {
     id: root
     property alias text: textField.text
     property alias options: listModel
-    property int fontSize: 20
+    property alias popup_heignt: popup.height
+    property int fontSize: 18
     // property var options
     signal optionSelected(string value)
 
@@ -49,7 +50,7 @@ Item {
         modal: false
         focus: false
         background: Background {
-            height: 200
+            height: parent.height * (1 + (1/2))
             color: "#211F26"
             width: parent.width
         }
@@ -57,7 +58,7 @@ Item {
             anchors.top: parent.top
             anchors.topMargin: 10
             width: parent.width
-            height: 125
+            height: parent.height
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ScrollBar.vertical.policy: ScrollBar.AlwaysOn
             

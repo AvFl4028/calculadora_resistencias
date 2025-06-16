@@ -10,6 +10,7 @@ Background {
         y: (menu.height / 2) - (height / 2)
         text: "Calculadora de Resistencias"
         font.family: "Roboto"
+        font.bold: true
         font.pixelSize: menu.fontSize
         color: "#d0bcfe"
     }

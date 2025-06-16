@@ -117,13 +117,10 @@ Window {
         }
         Component {
             id: ohm_component
-            Rectangle {
-                width: 300
-                height: width
-                color: "purple"
-
-                x: (main.width / 2) - (width / 2)
-                y: (main.height / 3) - (height / 2)
+            Ohm {
+                x: sidebar.x + sidebar.width + 10 + main.marginSideBar
+                height: main.height
+                width: main.width - (sidebar.x + sidebar.width + 10 + main.marginSideBar)
             }
         }
     }

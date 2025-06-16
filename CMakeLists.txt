@@ -27,6 +27,7 @@ qt_add_qml_module(appCalculadoraResistencia
         Main.qml
         components/Menu.qml
         components/Colors.qml
+        components/Ohm.qml
         
         components/SideBar/SideBar.qml
         components/SideBar/SideBarBtn.qml
@@ -41,6 +42,11 @@ qt_add_qml_module(appCalculadoraResistencia
 
         components/Colors/ResistenciaPreview.qml
         components/Colors/CuatroBandas.qml
+        components/Colors/CincoBandas.qml
+        components/Colors/SeisBandas.qml
+        components/Colors/NumBandas.qml
+        
+        components/Ohm/Calc.qml
 )
 
 set_target_properties(appCalculadoraResistencia PROPERTIES

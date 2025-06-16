@@ -7,6 +7,7 @@ Background {
     property int title_font_size: 24
     property int subtitle_font_size: 16
     property string fontColor: "#E8DEF8"
+
     Text {
         id: title
         text: root.title
@@ -62,7 +63,11 @@ Background {
         anchors.top: title.bottom
         anchors.topMargin: root.height * (1 / 10)
         x: (root.width / 2) - (width / 2)
+        onOptionSelected: (valor) => {
+            console.log(valor)
+        }
     }
+
     TextFieldMenu {
         id: banda_dos
         Component.onCompleted: {
@@ -107,6 +112,7 @@ Background {
         anchors.topMargin: root.height * (1 / 10)
         x: (root.width / 2) - (width / 2)
     }
+
     TextFieldMenu {
         id: banda_tres
         Component.onCompleted: {
@@ -151,6 +157,7 @@ Background {
         anchors.topMargin: root.height * (1 / 10)
         x: (root.width / 2) - (width / 2)
     }
+
     TextFieldMenu {
         id: banda_cuatro
         Component.onCompleted: {
