@@ -69,7 +69,7 @@ Window {
 
         Loader {
             id: colors_loader
-            active: true
+            active: false
             sourceComponent: colors_component
         }
 
@@ -81,7 +81,7 @@ Window {
 
         Loader {
             id: ohm_loader
-            active: false
+            active: true
             sourceComponent: ohm_component
         }
 
@@ -90,7 +90,7 @@ Window {
             Menu {
                 id: menu
                 fontSize: 35
-                width: 450
+                width: 750
                 x: (main.width / 2) - (width / 2)
                 y: (main.height / 3) - (height / 2)
             }
@@ -106,13 +106,10 @@ Window {
         }
         Component {
             id: circuit_component
-            Rectangle {
-                width: 300
-                height: width
-                color: "red"
-
-                x: (main.width / 2) - (width / 2)
-                y: (main.height / 3) - (height / 2)
+            Circuitos {
+                x: sidebar.x + sidebar.width + 10 + main.marginSideBar
+                height: main.height
+                width: main.width - (sidebar.x + sidebar.width + 10 + main.marginSideBar)
             }
         }
         Component {

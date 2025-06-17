@@ -12,6 +12,8 @@ Rectangle {
     width: 200
     height: 56
 
+    signal textChanged(string nuevoTexto)
+
     TextInput {
         id: text_field
         height: root.height - 10
@@ -22,5 +24,9 @@ Rectangle {
         color: "#D0BCFE"
         x: (root.width / 2) - (width / 2)
         y: (root.height / 2) - (height / 2)
+
+        onTextChanged: {
+            root.textChanged(text);
+        }
     }
 }

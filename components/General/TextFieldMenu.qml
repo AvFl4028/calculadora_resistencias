@@ -8,6 +8,7 @@ Item {
     property alias text: textField.text
     property alias options: listModel
     property alias popup_heignt: popup.height
+    property int marginList: 10
     property int fontSize: 18
     // property var options
     signal optionSelected(string value)
@@ -50,22 +51,34 @@ Item {
         modal: false
         focus: false
         background: Background {
-            height: parent.height * (1 + (1/2))
+            height: parent.height * (1 + (1 / 2))
             color: "#211F26"
             width: parent.width
         }
         ScrollView {
             anchors.top: parent.top
-            anchors.topMargin: 10
-            width: parent.width
-            height: parent.height
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+
+            anchors.topMargin: root.marginList
+            anchors.leftMargin: root.marginList
+            anchors.rightMargin: root.marginList
+            anchors.bottomMargin: root.marginList
+
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ScrollBar.vertical.policy: ScrollBar.AlwaysOn
-            
+            ScrollBar.vertical.interactive: true
+
             ListView {
                 id: listView
-                width: parent.width
-                height: parent.height
+                // width: parent.width
+                // height: parent.height
+
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
                 model: listModel
                 delegate: ItemDelegate {
                     required property string value

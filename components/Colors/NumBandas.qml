@@ -39,11 +39,11 @@ Background {
             anchors.top: title.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            popup_heignt: height
+            popup_heignt: height * (4 / 3)
             anchors.leftMargin: 10
             anchors.rightMargin: 10
             anchors.topMargin: 20
-            onOptionSelected: (valor) => {
+            onOptionSelected: valor => {
                 console.log("NumBandas emitió: ", valor);
                 root.bandaSeleccionada(valor);  // <- reenviamos la señal
             }
