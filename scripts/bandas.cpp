@@ -1,4 +1,4 @@
-#include "bandas.h"
+#include "headers/bandas.h"
 
 Bandas::Bandas(Color col, int position)
     : _col(col), _position(position)

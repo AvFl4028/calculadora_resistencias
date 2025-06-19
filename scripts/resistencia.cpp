@@ -1,4 +1,4 @@
-#include "resistencia.h"
+#include "headers/resistencia.h"
 
 Resistencia::Resistencia(Bandas *band, int numBandas)
 {

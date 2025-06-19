@@ -12,12 +12,16 @@ qt_standard_project_setup()
 qt_add_executable(appCalculadoraResistencia
     main.cpp
 
-    bandas.h 
-    bandas.cpp 
+    headers/bandas.h
+    headers/Colors.h
+    headers/ColorsControler.h
+    headers/Controler.h
+    headers/resistencia.h
 
-    resistencia.h 
-    resistencia.cpp 
-    
+    scripts/bandas.cpp 
+    scripts/ColorsControler.cpp 
+    scripts/Controler.cpp 
+    scripts/resistencia.cpp 
 )
 
 qt_add_qml_module(appCalculadoraResistencia
@@ -54,6 +58,7 @@ qt_add_qml_module(appCalculadoraResistencia
 
         components/Circuitos/Resistencias.qml
         components/Circuitos/Valores.qml
+        components/Circuitos/NumResistencias.qml
 )
 
 set_target_properties(appCalculadoraResistencia PROPERTIES

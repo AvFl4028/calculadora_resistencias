@@ -51,7 +51,7 @@ Item {
         modal: false
         focus: false
         background: Background {
-            height: parent.height * (1 + (1 / 2))
+            height: parent.height //* (1 + (1 / 2))
             color: "#211F26"
             width: parent.width
         }

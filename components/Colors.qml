@@ -16,24 +16,29 @@ Rectangle {
         anchors.topMargin: 40
         width: root.width * (5 / 10)
         height: root.height * (4 / 10)
-        
     }
     NumBandas {
         id: num_bandas
         anchors.top: resistencia_preview.bottom
         anchors.topMargin: 40
         width: resistencia_preview.width * (4 / 10)
-        onBandaSeleccionada: (valor) =>{
+        onBandaSeleccionada: valor => {
             if (valor == "4") {
-                resistencia_preview.cuatro_bandas_visible = true
-                resistencia_preview.cinco_bandas_visible = false
-                resistencia_preview.seis_bandas_visible = false
+                resistencia_preview.cuatro_bandas_visible = true;
+                resistencia_preview.cinco_bandas_visible = false;
+                resistencia_preview.seis_bandas_visible = false;
+
+                bandas_valores.bandaCincoVisible = false;
+                bandas_valores.bandaSeisVisible = false;
                 // resistencia_preview.banda_uno_color("red")
             }
             if (valor == "5") {
-                resistencia_preview.cuatro_bandas_visible = false
-                resistencia_preview.cinco_bandas_visible = true
-                resistencia_preview.seis_bandas_visible = false
+                resistencia_preview.cuatro_bandas_visible = false;
+                resistencia_preview.cinco_bandas_visible = true;
+                resistencia_preview.seis_bandas_visible = false;
+
+                bandas_valores.bandaCincoVisible = true;
+                bandas_valores.bandaSeisVisible = false;
 
                 // resistencia_preview.banda_uno_color("red")
                 // resistencia_preview.banda_dos_color("red")
@@ -42,9 +47,12 @@ Rectangle {
                 // resistencia_preview.banda_cinco_color("red")
             }
             if (valor == "6") {
-                resistencia_preview.cuatro_bandas_visible = false
-                resistencia_preview.cinco_bandas_visible = false
-                resistencia_preview.seis_bandas_visible = true
+                resistencia_preview.cuatro_bandas_visible = false;
+                resistencia_preview.cinco_bandas_visible = false;
+                resistencia_preview.seis_bandas_visible = true;
+
+                bandas_valores.bandaCincoVisible = true;
+                bandas_valores.bandaSeisVisible = true;
 
                 // resistencia_preview.banda_uno_color("red")
                 // resistencia_preview.banda_dos_color("red")
@@ -69,6 +77,7 @@ Rectangle {
     InputGroup {
         // width: 300
         // height: 500
+        id: bandas_valores
         anchors.top: title.bottom
         anchors.topMargin: 40
         anchors.right: root.right

@@ -1,6 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "resistencia.h"
+#include "headers/resistencia.h"
+#include "headers/ColorsControler.h"
+#include "headers/Controler.h"
+#include <QQmlContext>
 #include <iostream>
 
 int main(int argc, char *argv[])
@@ -13,7 +16,13 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+
+    ColorsControler colorsControler;
+    
+    engine.rootContext()->setContextProperty("colorsControler", &colorsControler);
+
     const QUrl url(QStringLiteral("qrc:/CalculadoraResistencia/Main.qml"));
+
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,
@@ -21,6 +30,9 @@ int main(int argc, char *argv[])
         []()
         { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
+
+    Controler::colorsConnectors(&colorsControler);
+
     engine.load(url);
 
     return app.exec();

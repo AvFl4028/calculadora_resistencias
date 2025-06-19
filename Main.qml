@@ -16,6 +16,10 @@ Window {
     height: 600
     visible: true
     title: qsTr("Calculadora de Resistencias")
+    onWidthChanged: () => {
+        console.log(colorsControler.msg);
+        colorsControler.msg += "da" 
+    }
 
     Pane {
         width: main.width
@@ -63,7 +67,7 @@ Window {
 
         Loader {
             id: menu_load
-            active: false
+            active: true
             sourceComponent: menu_component
         }
 
@@ -81,7 +85,7 @@ Window {
 
         Loader {
             id: ohm_loader
-            active: true
+            active: false
             sourceComponent: ohm_component
         }
 
