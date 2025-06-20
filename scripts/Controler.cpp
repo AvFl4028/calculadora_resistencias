@@ -12,3 +12,8 @@ ColorsControler *Controler::getColorsControler()
 {
     return &colors;
 }
+
+CircuitosControler *Controler::getCircuitosControler()
+{
+    return &circuitos;
+}

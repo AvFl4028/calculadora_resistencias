@@ -1,8 +1,8 @@
 #ifndef __COLORSCONTROLER_H__
 #define __COLORSCONTROLER_H__
 
-#include <QObject>
 #include "resistencia.h"
+#include <QObject>
 #include <qdebug.h>
 #include <sstream>
 

@@ -15,11 +15,17 @@ qt_add_executable(appCalculadoraResistencia
     headers/bandas.h
     headers/Colors.h
     headers/ColorsControler.h
+    headers/CircuitosControler.h
+    headers/Circuitos.h
+    headers/OhmControler.h
     headers/Controler.h
     headers/resistencia.h
 
     scripts/bandas.cpp 
     scripts/ColorsControler.cpp 
+    scripts/CircuitosControler.cpp 
+    scripts/Circuitos.cpp 
+    scripts/OhmControler.cpp 
     scripts/Controler.cpp 
     scripts/resistencia.cpp 
 )

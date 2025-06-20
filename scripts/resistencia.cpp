@@ -61,6 +61,9 @@ std::string Resistencia::getValuesTolerance()
     else
         return "Error tolerancia";
 
+    if (tolerancia < 0)
+        return "Error tolerancia";
+
     float valorTolerancia = valorTeorico * tolerancia;
 
     long long min = valorTeorico - valorTolerancia;

@@ -84,7 +84,7 @@ float Bandas::getTolerance(Color tol)
     case PLATA:
         return 0.1;
     default:
-        return 0;
+        return -1;
     }
 }
 

@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     Controler control;
 
     engine.rootContext()->setContextProperty("colorsControler", control.getColorsControler());
+    engine.rootContext()->setContextProperty("circuitosControler", control.getCircuitosControler());
 
     const QUrl url(QStringLiteral("qrc:/CalculadoraResistencia/Main.qml"));
 
@@ -32,6 +33,7 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection);
 
     control.getColorsControler()->connectors();
+    control.getCircuitosControler()->setupConnections();
 
     engine.load(url);
 
