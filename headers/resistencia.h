@@ -2,21 +2,26 @@
 #define RESISTENCIA_H
 
 #include "bandas.h"
+#include <string>
 
 class Resistencia
 {
 private:
     int value;
-    Bandas* bandas;
+    Bandas *bandas;
     int _numBandas;
     int getNumBandas();
 
 public:
-    Resistencia(Bandas* band, int numBandas);
+    Resistencia(Bandas *band, int numBandas);
+    Resistencia();
 
     ~Resistencia();
-    int calcValue();
-    int *getValuesTolerance();
+    long long calcValue();
+    std::string getValuesTolerance();
+
+    void setBandas(Bandas *band);
+    void setNumBandas(int numBands);
 };
 
 #endif // RESISTENCIA_H

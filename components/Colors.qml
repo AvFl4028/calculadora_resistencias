@@ -17,12 +17,44 @@ Rectangle {
         width: root.width * (5 / 10)
         height: root.height * (4 / 10)
     }
+
+    Connections {
+        target: colorsControler
+        onBanda_uno_color_changed: value => {
+            resistencia_preview.banda_uno_color(value);
+        }
+        onBanda_dos_color_changed: value => {
+            resistencia_preview.banda_dos_color(value);
+        }
+        onBanda_tres_color_changed: value => {
+            resistencia_preview.banda_tres_color(value);
+        }
+        onBanda_cuatro_color_changed: value => {
+            resistencia_preview.banda_cuatro_color(value);
+        }
+        onBanda_cinco_color_changed: value => {
+            resistencia_preview.banda_cinco_color(value);
+        }
+        onBanda_seis_color_changed: value => {
+            resistencia_preview.banda_seis_color(value);
+        }
+
+        onValor_changed: value => {
+            resultados.texto = value;
+        }
+
+        onValorTolerancia_changed: value => {
+            resultados.texto_second = value;
+        }
+    }
+
     NumBandas {
         id: num_bandas
         anchors.top: resistencia_preview.bottom
         anchors.topMargin: 40
         width: resistencia_preview.width * (4 / 10)
         onBandaSeleccionada: valor => {
+            colorsControler.numBandas = valor;
             if (valor == "4") {
                 resistencia_preview.cuatro_bandas_visible = true;
                 resistencia_preview.cinco_bandas_visible = false;
@@ -64,6 +96,7 @@ Rectangle {
         }
     }
     Results {
+        id: resultados
         anchors.top: resistencia_preview.bottom
         anchors.topMargin: 40
         anchors.left: num_bandas.right
@@ -86,5 +119,29 @@ Rectangle {
         anchors.left: resistencia_preview.right
         anchors.bottom: root.bottom
         anchors.bottomMargin: 40
+
+        onPrimeraBandaValor: value => {
+            colorsControler.banda_uno_color = value;
+        }
+
+        onSegundaBandaValor: value => {
+            colorsControler.banda_dos_color = value;
+        }
+
+        onTerceraBandaValor: value => {
+            colorsControler.banda_tres_color = value;
+        }
+
+        onCuartaBandaValor: value => {
+            colorsControler.banda_cuatro_color = value;
+        }
+
+        onQuintaBandaValor: value => {
+            colorsControler.banda_cinco_color = value;
+        }
+
+        onSextaBandaValor: value => {
+            colorsControler.banda_seis_color = value;
+        }
     }
 }

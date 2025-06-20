@@ -1,8 +1,14 @@
 #include "headers/Controler.h"
 
-void Controler::colorsConnectors(ColorsControler *controler)
+Controler::Controler(/* args */)
 {
-    QObject::connect(
-        controler, &ColorsControler::msgChanged, [](void)
-        { qDebug() << "Señal activada con texto" << "\n"; });
+}
+
+Controler::~Controler()
+{
+}
+
+ColorsControler *Controler::getColorsControler()
+{
+    return &colors;
 }

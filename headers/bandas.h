@@ -1,6 +1,7 @@
 #ifndef BANDAS_H
 #define BANDAS_H
 #include "Colors.h"
+#include <string>
 
 class Bandas
 {
@@ -14,6 +15,7 @@ public:
     float getValue();
     static float getMultiplier(Color mult = NADA);
     static float getTolerance(Color tol = NADA);
+    static Color toColor(std::string color);
     Color getColor();
 };
 #endif // BANDAS_H

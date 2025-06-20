@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    ColorsControler colorsControler;
-    
-    engine.rootContext()->setContextProperty("colorsControler", &colorsControler);
+    Controler control;
+
+    engine.rootContext()->setContextProperty("colorsControler", control.getColorsControler());
 
     const QUrl url(QStringLiteral("qrc:/CalculadoraResistencia/Main.qml"));
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
 
-    Controler::colorsConnectors(&colorsControler);
+    control.getColorsControler()->connectors();
 
     engine.load(url);
 

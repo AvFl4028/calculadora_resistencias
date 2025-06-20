@@ -88,6 +88,49 @@ float Bandas::getTolerance(Color tol)
     }
 }
 
-Color Bandas::getColor(){
+Color Bandas::getColor()
+{
     return _col;
+}
+
+Color Bandas::toColor(std::string color)
+{
+    Color result = NADA;
+    if (color == "NEGRO")
+        result = NEGRO;
+
+    if (color == "MARRON")
+        result = MARRON;
+
+    if (color == "ROJO")
+        result = ROJO;
+
+    if (color == "NARANJA")
+        result = NARANJA;
+
+    if (color == "AMARILLO")
+        result = AMARILLO;
+
+    if (color == "VERDE")
+        result = VERDE;
+
+    if (color == "AZUL")
+        result = AZUL;
+
+    if (color == "VIOLETA")
+        result = VIOLETA;
+
+    if (color == "GRIS")
+        result = GRIS;
+
+    if (color == "BLANCO")
+        result = BLANCO;
+
+    if (color == "ORO")
+        result = ORO;
+
+    if (color == "PLATA")
+        result = PLATA;
+
+    return result;
 }
