@@ -84,3 +84,6 @@ CMakeLists.txt.user*
 /.vscode
 /.cache
 /.qtcreator
+
+# Añadir icono
+!icons/icon.rc

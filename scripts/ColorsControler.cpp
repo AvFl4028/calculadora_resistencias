@@ -246,6 +246,7 @@ void ColorsControler::connectors()
 void ColorsControler::updateResistenciaValues()
 {
     int numBandas = getNumBandas();
+    std::string ppm = "";
 
     auto color = [](const QString &q)
     {
@@ -299,11 +300,12 @@ void ColorsControler::updateResistenciaValues()
 
         res.setNumBandas(6);
         res.setBandas(bandas);
+        ppm = Bandas::getPPM(bandas[5].getColor());
     }
 
     std::stringstream ss;
     ss << res.calcValue();
 
-    setValor(QString::fromStdString(ss.str() + " Ohms"));
+    setValor(QString::fromStdString(ss.str() + " Ohms " + ppm));
     setValorTolerancia(QString::fromStdString(res.getValuesTolerance()));
 }

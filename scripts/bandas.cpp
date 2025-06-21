@@ -134,3 +134,25 @@ Color Bandas::toColor(std::string color)
 
     return result;
 }
+
+std::string Bandas::getPPM(Color ppm)
+{
+    switch (ppm)
+    {
+    case MARRON:
+        return "100 ppm";
+    case ROJO:
+        return "50 ppm";
+    case NARANJA:
+        return "15 ppm";
+    case AMARILLO:
+        return "25 ppm";
+    case AZUL:
+        return "10 ppm";
+    case VIOLETA:
+        return "5 ppm";
+
+    default:
+        return "No hay ppm valido";
+    }
+}

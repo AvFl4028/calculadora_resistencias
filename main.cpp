@@ -8,11 +8,6 @@
 
 int main(int argc, char *argv[])
 {
-    Bandas bands[] = {Bandas(NEGRO, 1), Bandas(AZUL, 2), Bandas(ROJO, 3), Bandas(AMARILLO, 4)};
-    Resistencia res = Resistencia(bands, 4);
-
-    std::cout << res.calcValue() << std::endl;
-
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;

@@ -9,8 +9,11 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
 
+set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/icons/icon.rc")
+
 qt_add_executable(appCalculadoraResistencia
     main.cpp
+    ${app_icon_resource_windows}  # <- icono para Windows
 
     headers/bandas.h
     headers/Colors.h

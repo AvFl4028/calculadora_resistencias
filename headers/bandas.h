@@ -15,6 +15,7 @@ public:
     float getValue();
     static float getMultiplier(Color mult = NADA);
     static float getTolerance(Color tol = NADA);
+    static std::string getPPM(Color ppm = NADA);
     static Color toColor(std::string color);
     Color getColor();
 };
