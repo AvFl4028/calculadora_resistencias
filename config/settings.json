@@ -1,0 +1,7 @@
+{
+  "cmake.generator": "Ninja",
+  "cmake.buildDirectory": "${workspaceFolder}/build-release",
+  "cmake.configureSettings": {
+    "CMAKE_BUILD_TYPE": "Release"
+  }
+}
