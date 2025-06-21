@@ -58,18 +58,27 @@ Background {
                 id: segunda_valor
                 fontSize: root.textFieldFontSize
                 height: 40
+                onTextChanged: value => {
+                    root.resistenciaDosValue(value);
+                }
             }
 
             TextField {
                 id: tercer_valor
                 fontSize: root.textFieldFontSize
                 height: 40
+                onTextChanged: value => {
+                    root.resistenciaTresValue(value);
+                }
             }
 
             TextField {
                 id: cuarto_valor
                 fontSize: root.textFieldFontSize
                 height: 40
+                onTextChanged: value => {
+                    root.resistenciaCuatroValue(value);
+                }
             }
 
             Loader {
@@ -90,6 +99,9 @@ Background {
             TextField {
                 fontSize: root.textFieldFontSize
                 height: 40
+                onTextChanged: value => {
+                    root.resistenciaCincoValue(value);
+                }
             }
         }
 
@@ -98,6 +110,9 @@ Background {
             TextField {
                 fontSize: root.textFieldFontSize
                 height: 40
+                onTextChanged: value => {
+                    root.resistenciaSeisValue(value);
+                }
             }
         }
     }

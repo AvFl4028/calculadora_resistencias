@@ -23,6 +23,7 @@ Rectangle {
         width: root.container_width
         // height: root.height
         onFirstValue: value => {
+            circuitosControler.numResistencias = value;
             if (value == "4") {
                 resistencias.quintoValorVisible = false;
                 resistencias.sextoValorVisible = false;
@@ -36,6 +37,9 @@ Rectangle {
                 resistencias.sextoValorVisible = true;
             }
         }
+        onSecondValue: value => {
+            circuitosControler.circuito = value;
+        }
     }
 
     Valores {
@@ -45,6 +49,7 @@ Rectangle {
         anchors.left: numResistencias.right
         anchors.leftMargin: root.cont_margin
         width: root.container_width
+        height: numResistencias.height
     }
 
     Resistencias {
@@ -58,7 +63,34 @@ Rectangle {
         width: root.container_width
 
         onResistenciaUnoValue: value => {
-            console.log(value);
+            circuitosControler.r_uno_valor = value;
+        }
+
+        onResistenciaDosValue: value => {
+            circuitosControler.r_dos_valor = value;
+        }
+
+        onResistenciaTresValue: value => {
+            circuitosControler.r_tres_valor = value;
+        }
+
+        onResistenciaCuatroValue: value => {
+            circuitosControler.r_cuatro_valor = value;
+        }
+
+        onResistenciaCincoValue: value => {
+            circuitosControler.r_cinco_valor = value;
+        }
+
+        onResistenciaSeisValue: value => {
+            circuitosControler.r_seis_valor = value;
+        }
+    }
+
+    Connections {
+        target: circuitosControler
+        onValorChanged: value => {
+            valores.first_text = value;
         }
     }
 }

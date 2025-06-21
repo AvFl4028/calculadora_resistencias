@@ -3,6 +3,10 @@
 #include <QObject>
 #include <qdebug.h>
 #include "Circuitos.h"
+#include <stdexcept>
+#include <iostream>
+#include <string>
+#include <sstream>
 
 class CircuitosControler : public QObject
 {
@@ -15,7 +19,6 @@ class CircuitosControler : public QObject
     Q_PROPERTY(QString numResistencias READ numResistencias WRITE setNumResistencias NOTIFY numResistenciasChanged)
 
     Q_PROPERTY(QString valor READ valor WRITE setValor NOTIFY valorChanged)
-    Q_PROPERTY(QString valorTolerancia READ valorTolerancia WRITE setValorTolerancia NOTIFY valorToleranciaChanged)
 
     Q_PROPERTY(QString r_uno_valor READ r_uno_valor WRITE set_r_uno_valor NOTIFY r_uno_valor_changed)
     Q_PROPERTY(QString r_dos_valor READ r_dos_valor WRITE set_r_dos_valor NOTIFY r_dos_valor_changed)
@@ -40,6 +43,7 @@ private:
     void updateValues();
     template <typename Signal>
     void setupConnection(QString msg, Signal func);
+    float toFloat(QString mount);
 
 public:
     explicit CircuitosControler(QObject *parent = nullptr);
@@ -51,7 +55,6 @@ public:
     QString numResistencias() const;
 
     QString valor() const;
-    QString valorTolerancia() const;
 
     QString r_uno_valor() const;
     QString r_dos_valor() const;
@@ -66,7 +69,6 @@ public:
     void setNumResistencias(const QString &value);
 
     void setValor(const QString &value);
-    void setValorTolerancia(const QString &value);
 
     void set_r_uno_valor(const QString &value);
     void set_r_dos_valor(const QString &value);
@@ -82,7 +84,6 @@ signals:
     void circuitoChanged(QString value);
     void numResistenciasChanged(QString value);
     void valorChanged(QString value);
-    void valorToleranciaChanged(QString value);
     void r_uno_valor_changed(QString value);
     void r_dos_valor_changed(QString value);
     void r_tres_valor_changed(QString value);

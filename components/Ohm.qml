@@ -35,6 +35,6 @@ Rectangle {
         anchors.leftMargin: root.cont_margin
         width: root.container_width
         title: "Resultado"
-        texto: "100 ohms"
+        texto: "0 ohms"
     }
 }

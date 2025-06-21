@@ -102,9 +102,9 @@ Rectangle {
         anchors.left: num_bandas.right
         anchors.leftMargin: resistencia_preview.width - width - num_bandas.width
         title: "Valores"
-        texto: "10"
+        texto: "0 Ohms"
         title_second: "Rango Tolerancia"
-        texto_second: "100"
+        texto_second: "(0, 0) Ohms"
         width: resistencia_preview.width * (4 / 10)
     }
     InputGroup {

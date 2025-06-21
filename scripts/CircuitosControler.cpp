@@ -36,11 +36,6 @@ QString CircuitosControler::valor() const
     return _valor;
 }
 
-QString CircuitosControler::valorTolerancia() const
-{
-    return _valorTolerancia;
-}
-
 QString CircuitosControler::r_uno_valor() const
 {
     return _r_uno_valor;
@@ -95,15 +90,6 @@ void CircuitosControler::setValor(const QString &value)
     {
         _valor = value;
         emit valorChanged(value);
-    }
-}
-
-void CircuitosControler::setValorTolerancia(const QString &value)
-{
-    if (_valorTolerancia != value)
-    {
-        _valorTolerancia = value;
-        emit valorToleranciaChanged(value);
     }
 }
 
@@ -174,7 +160,6 @@ void CircuitosControler::setupConnections()
     setupConnection("Mensaje cambiado a: ", &CircuitosControler::msgChanged);
 
     setupConnection("Valor: ", &CircuitosControler::valorChanged);
-    setupConnection("Valor Tolerancia: ", &CircuitosControler::valorToleranciaChanged);
 
     setupConnection("Numero de resistencias: ", &CircuitosControler::numResistenciasChanged);
     setupConnection("Circuito: ", &CircuitosControler::circuitoChanged);
@@ -189,8 +174,81 @@ void CircuitosControler::setupConnections()
 
 void CircuitosControler::updateValues()
 {
-    if (_numResistencias == "4")
+    std::stringstream valor;
+    int num = _numResistencias.toInt();
+    float result = 0;
+
+    if (num == 4)
     {
-        
+        float valores[4] = {toFloat(_r_uno_valor), toFloat(_r_dos_valor), toFloat(_r_tres_valor), toFloat(_r_cuatro_valor)};
+        if (_circuito == "Serie")
+        {
+            result = Circuitos::SerieCalc(valores, num);
+        }
+        else if (_circuito == "Paralelo")
+        {
+            result = Circuitos::ParaleloCalc(valores, num);
+        }
     }
+
+    if (num == 5)
+    {
+        float valores[5] = {toFloat(_r_uno_valor), toFloat(_r_dos_valor), toFloat(_r_tres_valor), toFloat(_r_cuatro_valor), toFloat(_r_cinco_valor)};
+        if (_circuito == "Serie")
+        {
+            result = Circuitos::SerieCalc(valores, num);
+        }
+        else if (_circuito == "Paralelo")
+        {
+            result = Circuitos::ParaleloCalc(valores, num);
+        }
+    }
+
+    if (num == 6)
+    {
+        float valores[6] = {toFloat(_r_uno_valor), toFloat(_r_dos_valor), toFloat(_r_tres_valor), toFloat(_r_cuatro_valor), toFloat(_r_cinco_valor), toFloat(_r_seis_valor)};
+        if (_circuito == "Serie")
+        {
+            result = Circuitos::SerieCalc(valores, num);
+        }
+        else if (_circuito == "Paralelo")
+        {
+            result = Circuitos::ParaleloCalc(valores, num);
+        }
+    }
+
+    if (result == -1)
+    {
+        valor << "Error, falta de datos";
+    }
+    else if (result == -2)
+    {
+        valor << "Error, R=1/0!";
+    }
+    else
+    {
+        valor << result;
+    }
+
+    setValor(QString::fromStdString(valor.str() + " Ohms"));
+}
+
+float CircuitosControler::toFloat(QString mount)
+{
+    if (mount.isEmpty() || mount.isNull())
+        return -1;
+
+    try
+    {
+        float result = 0;
+        result = mount.toFloat();
+        return result;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+        qDebug() << e.what() << "\n";
+    }
+
+    return -2;
 }
