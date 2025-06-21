@@ -15,6 +15,7 @@ Background {
         text: "Num. Resistencias"
     }
     TextFieldMenu {
+        text: ""
         id: first_value
         x: (root.width / 2) - (width / 2)
         anchors.top: first_title.bottom
@@ -45,6 +46,7 @@ Background {
     TextFieldMenu {
         id: second_value
         x: (root.width / 2) - (width / 2)
+        text: ""
         anchors.top: second_title.bottom
         anchors.topMargin: 20
         popup_heignt: height * 2

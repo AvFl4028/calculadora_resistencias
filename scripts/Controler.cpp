@@ -17,3 +17,7 @@ CircuitosControler *Controler::getCircuitosControler()
 {
     return &circuitos;
 }
+
+OhmControler *Controler::getOhmControler(){
+    return &ohm;
+}

@@ -9,7 +9,7 @@ Background {
     property string font: "Roboto"
     property int title_font_size: 24
     property string fontColor: "#E8DEF8"
-    signal bandaSeleccionada(string valor)
+    signal calculoSeleccionado(string valor)
 
     height: 170
 
@@ -45,7 +45,7 @@ Background {
             anchors.topMargin: 20
             onOptionSelected: (valor) => {
                 console.log("Calcul emitió: ", valor);
-                root.bandaSeleccionada(valor);  // <- reenviamos la señal
+                root.calculoSeleccionado(valor);  // <- reenviamos la señal
             }
 
             Component.onCompleted: {

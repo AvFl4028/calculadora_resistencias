@@ -18,6 +18,7 @@ qt_add_executable(appCalculadoraResistencia
     headers/CircuitosControler.h
     headers/Circuitos.h
     headers/OhmControler.h
+    headers/Ohm.h
     headers/Controler.h
     headers/resistencia.h
 
@@ -26,6 +27,7 @@ qt_add_executable(appCalculadoraResistencia
     scripts/CircuitosControler.cpp 
     scripts/Circuitos.cpp 
     scripts/OhmControler.cpp 
+    scripts/Ohm.cpp 
     scripts/Controler.cpp 
     scripts/resistencia.cpp 
 )

@@ -9,6 +9,10 @@ Background {
     property int title_font_size: 24
     property int subtitle_font_size: 16
     property string fontColor: "#E8DEF8"
+
+    property alias primer_valor: text_value_one.text
+    property alias segundo_valor: text_value_two.text
+
     height: 230
 
     signal first_value(string value)

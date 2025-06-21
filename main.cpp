@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("colorsControler", control.getColorsControler());
     engine.rootContext()->setContextProperty("circuitosControler", control.getCircuitosControler());
+    engine.rootContext()->setContextProperty("ohmControler", control.getOhmControler());
 
     const QUrl url(QStringLiteral("qrc:/CalculadoraResistencia/Main.qml"));
 
@@ -34,6 +35,7 @@ int main(int argc, char *argv[])
 
     control.getColorsControler()->connectors();
     control.getCircuitosControler()->setupConnections();
+    control.getOhmControler()->setupConnections();
 
     engine.load(url);
 

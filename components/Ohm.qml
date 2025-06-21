@@ -18,6 +18,9 @@ Rectangle {
         anchors.top: main_title.bottom
         width: root.container_width
         anchors.topMargin: root.height * (1 / 5)
+        onCalculoSeleccionado: value => {
+            ohmControler.calculo = value;
+        }
     }
     Valores {
         id: valores
@@ -26,6 +29,12 @@ Rectangle {
         anchors.left: calculos.right
         anchors.leftMargin: root.cont_margin
         width: root.container_width
+        onFirst_value: value => {
+            ohmControler.firstValue = value;
+        }
+        onSecond_value: value => {
+            ohmControler.secondValue = value;
+        }
     }
     Results {
         id: resultados
@@ -36,5 +45,19 @@ Rectangle {
         width: root.container_width
         title: "Resultado"
         texto: "0 ohms"
+    }
+
+    Connections {
+        target: ohmControler
+        onResultChanged: value => {
+            resultados.texto = value;
+        }
+
+        onFirstLabelChanged: value => {
+            valores.primer_valor = value;
+        }
+        onSecondLabelChanged: value => {
+            valores.segundo_valor = value;
+        }
     }
 }
