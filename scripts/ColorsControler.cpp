@@ -264,19 +264,7 @@ void ColorsControler::updateResistenciaValues()
         res.setNumBandas(4);
         res.setBandas(bandas);
     }
-
-    if (numBandas == 4)
-    {
-        Bandas bandas[4] = {
-            Bandas(color(_banda_uno_color), 1),
-            Bandas(color(_banda_dos_color), 2),
-            Bandas(color(_banda_tres_color), 3),
-            Bandas(color(_banda_cuatro_color), 4)};
-
-        res.setNumBandas(4);
-        res.setBandas(bandas);
-    }
-    if (numBandas == 5)
+    else if (numBandas == 5)
     {
         Bandas bandas[5] = {
             Bandas(color(_banda_uno_color), 0),
@@ -288,7 +276,7 @@ void ColorsControler::updateResistenciaValues()
         res.setNumBandas(5);
         res.setBandas(bandas);
     }
-    if (numBandas == 6)
+    else if (numBandas == 6)
     {
         Bandas bandas[6] = {
             Bandas(color(_banda_uno_color), 0),
